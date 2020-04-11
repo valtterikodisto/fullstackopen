@@ -14,4 +14,11 @@ export const show = (notification) => ({
 })
 export const hide = () => ({ type: "hide" })
 
+export const setNotification = (notification, seconds) => {
+  return async (dispatch) => {
+    dispatch(show(notification))
+    setTimeout(() => dispatch(hide()), seconds * 1000)
+  }
+}
+
 export default reducer
